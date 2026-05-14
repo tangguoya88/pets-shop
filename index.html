@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>爪印宠物馆 — 找到你的毛茸茸家人</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Noto+Sans+SC:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="nav__inner">
+    <a href="#" class="nav__logo">
+      <span class="nav__logo-icon">🐾</span>
+      <span class="nav__logo-text">爪印</span>
+    </a>
+    <ul class="nav__links">
+      <li><a href="#home" class="nav__link nav__link--active">首页</a></li>
+      <li><a href="#pets" class="nav__link">宠物家族</a></li>
+      <li><a href="#about" class="nav__link">关于我们</a></li>
+      <li><a href="#testimonials" class="nav__link">幸福故事</a></li>
+      <li><a href="#contact" class="nav__link">联系我们</a></li>
+    </ul>
+    <div class="nav__actions">
+      <button class="nav__cart-btn" id="cartBtn" aria-label="购物车">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+          <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+        </svg>
+        <span class="nav__cart-count" id="cartCount">0</span>
+      </button>
+      <button class="nav__menu-btn" id="menuBtn" aria-label="菜单">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div class="cart-overlay" id="cartOverlay"></div>
+<div class="cart-panel" id="cartPanel">
+  <div class="cart-panel__header">
+    <h3>购物车</h3>
+    <button class="cart-panel__close" id="cartClose">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+  <div class="cart-panel__items" id="cartItems">
+    <p class="cart-panel__empty">购物车是空的，快去带一只毛孩子回家吧 🐱</p>
+  </div>
+  <div class="cart-panel__footer" id="cartFooter" style="display:none">
+    <div class="cart-panel__total">
+      <span>合计</span>
+      <span id="cartTotal">¥0</span>
+    </div>
+    <button class="cart-panel__checkout">预约咨询</button>
+  </div>
+</div>
+
+<section class="hero" id="home">
+  <div class="hero__bg">
+    <div class="hero__gradient"></div>
+    <div class="hero__shapes">
+      <div class="hero__shape hero__shape--1"></div>
+      <div class="hero__shape hero__shape--2"></div>
+      <div class="hero__shape hero__shape--3"></div>
+    </div>
+  </div>
+  <div class="hero__content">
+    <div class="hero__badge">
+      <span class="hero__badge-dot"></span>
+      精品繁育 · 健康保障
+    </div>
+    <h1 class="hero__title">
+      <span class="hero__title-line">找到你的</span>
+      <span class="hero__title-line hero__title-line--accent">毛茸茸家人</span>
+    </h1>
+    <p class="hero__desc">
+      每一只宠物都经过精心繁育与健康检查，我们不只是在出售宠物，<br>
+      更是在连接一颗颗温暖的心。
+    </p>
+    <div class="hero__actions">
+      <a href="#pets" class="btn btn--primary">
+        探索宠物家族
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="#about" class="btn btn--outline">了解更多</a>
+    </div>
+    <div class="hero__stats">
+      <div class="hero__stat">
+        <span class="hero__stat-num" data-count="1280">0</span>
+        <span class="hero__stat-label">幸福家庭</span>
+      </div>
+      <div class="hero__stat">
+        <span class="hero__stat-num" data-count="42">0</span>
+        <span class="hero__stat-label">宠物品种</span>
+      </div>
+      <div class="hero__stat">
+        <span class="hero__stat-num" data-count="8">0</span>
+        <span class="hero__stat-label">年经验</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero__scroll" id="scrollIndicator">
+    <span>向下探索</span>
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+  </div>
+</section>
+
+<section class="pets" id="pets">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-header__tag">我们的家族</span>
+      <h2 class="section-header__title">等待新家的<span class="text-accent">毛孩子们</span></h2>
+      <p class="section-header__desc">每一只都经过了全面的健康检查与性格评估</p>
+    </div>
+
+    <div class="pets__filters">
+      <button class="pets__filter pets__filter--active" data-filter="all">全部</button>
+      <button class="pets__filter" data-filter="cat">猫咪</button>
+      <button class="pets__filter" data-filter="dog">狗狗</button>
+      <button class="pets__filter" data-filter="small">小宠</button>
+    </div>
+
+    <div class="pets__grid" id="petsGrid"></div>
+  </div>
+</section>
+
+<section class="features" id="features">
+  <div class="container">
+    <div class="features__grid">
+      <div class="feature-card">
+        <div class="feature-card__icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+        </div>
+        <h3>健康保障</h3>
+        <p>每只宠物均经过兽医全面体检，提供30天健康保障承诺</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card__icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 1 0-16 0"/>
+          </svg>
+        </div>
+        <h3>专业繁育</h3>
+        <p>合作繁育基地均持证经营，严格按照动物福利标准繁育</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card__icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+            <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+            <line x1="12" y1="22.08" x2="12" y2="12"/>
+          </svg>
+        </div>
+        <h3>终身服务</h3>
+        <p>提供饲养指导、营养咨询及寄养服务，陪伴宠物一生</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card__icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+          </svg>
+        </div>
+        <h3>爱心传递</h3>
+        <p>每笔交易的部分收益捐赠给动物保护组织</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="container">
+    <div class="about__grid">
+      <div class="about__visual">
+        <div class="about__img-frame">
+          <div class="about__img-placeholder">
+            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.4">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+          <div class="about__img-decoration"></div>
+        </div>
+        <div class="about__experience">
+          <span class="about__experience-num">8+</span>
+          <span class="about__experience-label">年用心服务</span>
+        </div>
+      </div>
+      <div class="about__text">
+        <span class="section-header__tag">关于爪印</span>
+        <h2 class="section-header__title">用心连接每一个<span class="text-accent">温暖的家</span></h2>
+        <p class="about__para">
+          爪印宠物馆成立于2018年，我们相信每一只宠物都值得拥有一个充满爱的家。我们的繁育合作伙伴遍布全国，每一只幼宠都在温馨、卫生的环境中成长。
+        </p>
+        <p class="about__para">
+          从繁育到交付，我们建立了一套完整的标准流程：基因筛查、疫苗接种、社会化训练、性格评估——确保每一位新主人带回家的，都是一个健康、快乐的小伙伴。
+        </p>
+        <div class="about__values">
+          <div class="about__value">
+            <span class="about__value-check">✓</span> 双重健康检查
+          </div>
+          <div class="about__value">
+            <span class="about__value-check">✓</span> 血统证书齐全
+          </div>
+          <div class="about__value">
+            <span class="about__value-check">✓</span> 终身饲养顾问
+          </div>
+          <div class="about__value">
+            <span class="about__value-check">✓</span> 7天无忧退换
+          </div>
+        </div>
+        <a href="#contact" class="btn btn--primary">
+          预约到店
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials" id="testimonials">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-header__tag">幸福故事</span>
+      <h2 class="section-header__title">听听<span class="text-accent">家长们</span>怎么说</h2>
+    </div>
+    <div class="testimonials__grid">
+      <div class="testimonial-card">
+        <div class="testimonial-card__stars">★★★★★</div>
+        <p class="testimonial-card__text">"从爪印带回家的布偶猫简直太棒了！性格温柔又粘人，健康状况也很好。店员全程细心指导，让人特别放心。"</p>
+        <div class="testimonial-card__author">
+          <div class="testimonial-card__avatar" style="background:#f2d5c4">林</div>
+          <div>
+            <strong>林女士</strong>
+            <span>布偶猫 · 养宠1年</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card testimonial-card--featured">
+        <div class="testimonial-card__stars">★★★★★</div>
+        <p class="testimonial-card__text">"给女儿买的金毛宝宝，健康活泼又聪明。爪印的售后服务也特别好，有任何问题随时都能咨询。强烈推荐！"</p>
+        <div class="testimonial-card__author">
+          <div class="testimonial-card__avatar" style="background:#c4d7f2">张</div>
+          <div>
+            <strong>张先生</strong>
+            <span>金毛寻回犬 · 养宠2年</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-card__stars">★★★★★</div>
+        <p class="testimonial-card__text">"作为一个新手铲屎官，爪印提供的饲养指南真的帮了大忙。小柯基现在是我生活中最亮眼的小太阳！"</p>
+        <div class="testimonial-card__author">
+          <div class="testimonial-card__avatar" style="background:#d4c4f2">王</div>
+          <div>
+            <strong>王女士</strong>
+            <span>柯基犬 · 养宠半年</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="contact__grid">
+      <div class="contact__info">
+        <span class="section-header__tag">联系我们</span>
+        <h2 class="section-header__title">开启你们的<span class="text-accent">故事</span></h2>
+        <p class="contact__desc">预约到店与毛孩子们面对面互动，找到你命中注定的那个它。</p>
+        <div class="contact__details">
+          <div class="contact__detail">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>上海市静安区南京西路1788号</span>
+          </div>
+          <div class="contact__detail">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            <span>周二至周日 10:00 - 20:00</span>
+          </div>
+          <div class="contact__detail">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span>400-888-9999</span>
+          </div>
+        </div>
+      </div>
+      <form class="contact__form" id="contactForm">
+        <div class="contact__form-row">
+          <input type="text" placeholder="您的姓名" class="contact__input" required>
+          <input type="tel" placeholder="手机号码" class="contact__input" required>
+        </div>
+        <input type="text" placeholder="感兴趣的宠物品种（选填）" class="contact__input">
+        <textarea placeholder="告诉我们您的需求..." class="contact__input contact__textarea" rows="4"></textarea>
+        <button type="submit" class="btn btn--primary btn--full">
+          提交咨询
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a href="#" class="footer__logo">
+          <span>🐾</span> 爪印宠物馆
+        </a>
+        <p>用心连接每一个温暖的家。<br>让每一只宠物都找到属于自己的幸福。</p>
+      </div>
+      <div class="footer__links">
+        <h4>快速导航</h4>
+        <a href="#pets">宠物家族</a>
+        <a href="#about">关于我们</a>
+        <a href="#testimonials">幸福故事</a>
+        <a href="#contact">联系我们</a>
+      </div>
+      <div class="footer__links">
+        <h4>服务支持</h4>
+        <a href="#">饲养指南</a>
+        <a href="#">健康保障</a>
+        <a href="#">常见问题</a>
+        <a href="#">售后政策</a>
+      </div>
+      <div class="footer__links">
+        <h4>关注我们</h4>
+        <a href="#">微信公众号</a>
+        <a href="#">小红书</a>
+        <a href="#">抖音</a>
+        <a href="#">微博</a>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>© 2025 爪印宠物馆 版权所有 | 沪ICP备XXXXXXXX号</p>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast">
+  <span class="toast__icon">✓</span>
+  <span class="toast__msg"></span>
+</div>
+
+<div class="modal" id="petModal">
+  <div class="modal__overlay" id="modalOverlay"></div>
+  <div class="modal__content" id="modalContent"></div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
